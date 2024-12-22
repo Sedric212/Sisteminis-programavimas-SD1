@@ -1,0 +1,5 @@
+﻿  failu_apdorojimas.cpp
+C:\Users\arnas\OneDrive\Desktop\Sisteminio programavimo darbas\ConsoleApplication1\failu_apdorojimas.cpp(50,20): warning C4566: character represented by universal-character-name '\u010D' cannot be represented in the current code page (1252)
+C:\Users\arnas\OneDrive\Desktop\Sisteminio programavimo darbas\ConsoleApplication1\failu_apdorojimas.cpp(50,20): warning C4566: character represented by universal-character-name '\u0173' cannot be represented in the current code page (1252)
+C:\Users\arnas\OneDrive\Desktop\Sisteminio programavimo darbas\ConsoleApplication1\failu_apdorojimas.cpp(50,20): warning C4566: character represented by universal-character-name '\u0117' cannot be represented in the current code page (1252)
+  ConsoleApplication1.vcxproj -> C:\Users\arnas\OneDrive\Desktop\Sisteminio programavimo darbas\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
