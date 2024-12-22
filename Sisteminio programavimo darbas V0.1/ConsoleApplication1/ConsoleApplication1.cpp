@@ -5,6 +5,61 @@
 #include <vector>
 #include <iomanip>
 
+// Funkcija rankiniam studentų duomenų įvedimui
+void ivestiStudentus(std::vector<studentas>& studentai) {
+    int studentuSk;
+    std::cout << "Kiek studentu norite ivesti? ";
+    std::cin >> studentuSk;
+
+    for (int i = 0; i < studentuSk; ++i) {
+        std::string vardas, pavarde;
+        std::cout << "\nIveskite " << i + 1 << "-ojo studento duomenis:\n";
+        std::cout << "Vardas: ";
+        std::cin >> vardas;
+        std::cout << "Pavarde: ";
+        std::cin >> pavarde;
+
+        std::vector<double> namuDarbai;
+        double balas;
+
+        std::cout << "Dabar iveskite namu darbu pazymius. "
+            << "Kai baigsite, iveskite '-1', kad pereitumete prie egzamino balo.\n";
+        std::cout << "Atminkite: pazymiai turi buti tarp 0 ir 10.\n";
+
+        while (true) {
+            std::cout << "Namu darbu pazymys (-1 jei baigiate): ";
+            std::cin >> balas;
+
+            if (balas == -1) {
+                break;
+            }
+
+            if (balas < 0 || balas > 10) {
+                std::cout << "Klaida: pazymys turi buti tarp 0 ir 10. Bandykite dar karta.\n";
+                continue;
+            }
+
+            namuDarbai.push_back(balas);
+        }
+
+        double egzaminas;
+        while (true) {
+            std::cout << "Egzamino balas: ";
+            std::cin >> egzaminas;
+
+            if (egzaminas < 0 || egzaminas > 10) {
+                std::cout << "Klaida: egzamino balas turi buti tarp 0 ir 10. Bandykite dar karta.\n";
+                continue;
+            }
+
+            break;
+        }
+
+        studentai.emplace_back(vardas, pavarde, namuDarbai, egzaminas);
+    }
+}
+
+// Funkcija studentų spausdinimui
 void spausdintiStudentus(const std::vector<studentas>& studentai) {
     std::cout << std::setw(15) << "Pavarde"
         << std::setw(15) << "Vardas"
@@ -17,6 +72,7 @@ void spausdintiStudentus(const std::vector<studentas>& studentai) {
     }
 }
 
+// Pagrindinė funkcija
 int main() {
     std::vector<studentas> studentai;
 
@@ -28,35 +84,11 @@ int main() {
     std::cin >> pasirinkimas;
 
     if (pasirinkimas == 1) {
-        int studentuSk;
-        std::cout << "Kiek studentu norite ivesti? ";
-        std::cin >> studentuSk;
-
-        for (int i = 0; i < studentuSk; ++i) {
-            std::string vardas, pavarde;
-            std::cout << "Iveskite varda ir pavarde: ";
-            std::cin >> vardas >> pavarde;
-
-            std::vector<double> namuDarbai;
-            double balas;
-            std::cout << "Iveskite namu darbu pazymius (-1 jei baigiate): ";
-            while (true) {
-                std::cin >> balas;
-                if (balas == -1) break;
-                namuDarbai.push_back(balas);
-            }
-
-            double egzaminas;
-            std::cout << "Iveskite egzamino bala: ";
-            std::cin >> egzaminas;
-
-            studentai.emplace_back(vardas, pavarde, namuDarbai, egzaminas);
-        }
+        ivestiStudentus(studentai);
     }
     else if (pasirinkimas == 2) {
         try {
-            // Naudojamas absoliutus kelias
-            nuskaitytiIsFailo("C:\\Users\\arnas\\OneDrive\\Desktop\\Sisteminio programavimo darbas\\ConsoleApplication1\\x64\\Debug\\kursiokai.txt", studentai);
+            nuskaitytiIsFailo("C:\\Users\\arnas\\OneDrive\\Desktop\\Sisteminio programavimo darbas V0.1\\ConsoleApplication1\\x64\\Debug\\kursiokai.txt", studentai);
         }
         catch (const std::exception& e) {
             std::cerr << "Klaida: " << e.what() << std::endl;

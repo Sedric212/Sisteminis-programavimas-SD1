@@ -4,7 +4,6 @@
 #include <algorithm>
 #include <numeric>
 
-// Konstruktoriaus implementacija
 studentas::studentas() : vardas(""), pavarde(""), egzaminas(0), galutinisVidurkis(0), galutinisMediana(0) {}
 
 studentas::studentas(std::string v, std::string p, std::vector<double> nd, double egzam)
@@ -21,10 +20,6 @@ void studentas::skaiciuotiVidurki() {
     double suma = std::accumulate(ndBalai.begin(), ndBalai.end(), 0.0);
     double vidurkis = suma / ndBalai.size();
     galutinisVidurkis = (vidurkis * 0.4) + (egzaminas * 0.6);
-
-    // Debug informacija
-    std::cout << "DEBUG: Vidurkis: " << vidurkis << ", Egzaminas: " << egzaminas
-        << ", Galutinis Vidurkis: " << galutinisVidurkis << std::endl;
 }
 
 void studentas::skaiciuotiMediana() {
@@ -41,10 +36,6 @@ void studentas::skaiciuotiMediana() {
         mediana = ndBalai[ndBalai.size() / 2];
     }
     galutinisMediana = (mediana * 0.4) + (egzaminas * 0.6);
-
-    // Debug informacija
-    std::cout << "DEBUG: Mediana: " << mediana << ", Egzaminas: " << egzaminas
-        << ", Galutinis Mediana: " << galutinisMediana << std::endl;
 }
 
 void studentas::spausdinti() const {
