@@ -1,0 +1,7 @@
+﻿  ConsoleApplication1.cpp
+C:\Users\arnas\OneDrive\Desktop\Sisteminio programavimo darbas. iki v0.2\ConsoleApplication1\ConsoleApplication1.cpp(123,30): warning C4566: character represented by universal-character-name '\u0173' cannot be represented in the current code page (1252)
+  failu_apdorojimas.cpp
+C:\Users\arnas\OneDrive\Desktop\Sisteminio programavimo darbas. iki v0.2\ConsoleApplication1\failu_apdorojimas.cpp(123,38): warning C4566: character represented by universal-character-name '\u0173' cannot be represented in the current code page (1252)
+  studentas.cpp
+  Generating Code...
+  ConsoleApplication1.vcxproj -> C:\Users\arnas\OneDrive\Desktop\Sisteminio programavimo darbas. iki v0.2\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
